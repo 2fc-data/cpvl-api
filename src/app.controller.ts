@@ -36,11 +36,16 @@ export class AppController {
         label: 'Pilotos autorizados',
         route: 'status-list',
       },
+      payment: {
+        label: 'Quadro financeiro do piloto',
+        route: 'payment',
+      },
     };
 
     const allowedPages = {
       admin: [...Object.keys(pages).map((key) => pages[key])],
       fiscal: [pages.statusList],
+      piloto: [pages.payment],
     };
     res.send(allowedPages[userRole] || []);
   }
